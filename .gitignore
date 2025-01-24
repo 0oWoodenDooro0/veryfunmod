@@ -1,0 +1,9 @@
+# idea
+.idea
+.kotlin
+
+build
+.gradle
+
+run
+/src/generated/resources/.cache/

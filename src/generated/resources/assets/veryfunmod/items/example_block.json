@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "veryfunmod:block/example_block"
+  }
+}

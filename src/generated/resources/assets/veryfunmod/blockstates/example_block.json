@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "veryfunmod:block/example_block"
+    }
+  }
+}

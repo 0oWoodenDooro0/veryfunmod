@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "veryfunmod"
+    }
+  ],
+  "type": "veryfunmod:mod_loot_modifier",
+  "conditions": [
+    {
+      "block": "minecraft:stone",
+      "condition": "minecraft:block_state_property"
+    }
+  ],
+  "item": "veryfunmod:rock"
+}
