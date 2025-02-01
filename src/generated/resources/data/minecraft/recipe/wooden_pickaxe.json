@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:stick",
+    "veryfunmod:wooden_pick_head"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:wooden_pickaxe"
+  }
+}

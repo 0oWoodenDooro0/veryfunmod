@@ -15,6 +15,11 @@ class ModModelProvider(output: PackOutput) : ModelProvider(output, VeryFunMod.ID
         blockModels.createTrivialCube(exampleBlock)
 
         itemModels.generateFlatItem(ModItems.ROCK, ModelTemplates.FLAT_ITEM)
-        itemModels.generateFlatItem(ModItems.FLINT_AXE, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.WOODEN_AXE_HEAD, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.WOODEN_HOE_HEAD, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.WOODEN_PICK_HEAD, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.WOODEN_SHOVEL_HEAD, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.WOODEN_SWORD_HEAD, ModelTemplates.FLAT_ITEM)
+        itemModels.generateFlatItem(ModItems.FLINT_KNIFE, ModelTemplates.FLAT_ITEM)
     }
 }

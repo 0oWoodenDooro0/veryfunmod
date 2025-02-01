@@ -107,9 +107,9 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     implementation 'thedarkcolour:kotlinforforge-neoforge:5.3.0'
 
-//    api("dev.architectury:architectury-neoforge:15.0.1")
-//    api("me.shedaniel.cloth:cloth-config-neoforge:17.0.144")
-//    api("me.shedaniel:RoughlyEnoughItems-neoforge:18.0.796")
+    api("dev.architectury:architectury-neoforge:15.0.1")
+    api("me.shedaniel.cloth:cloth-config-neoforge:17.0.144")
+    api("me.shedaniel:RoughlyEnoughItems-neoforge:18.0.796")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar

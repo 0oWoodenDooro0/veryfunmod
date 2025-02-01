@@ -15,7 +15,7 @@ class ModGlobalLootModifierProvider(output: PackOutput, registries: CompletableF
     GlobalLootModifierProvider(output, registries, VeryFunMod.ID) {
     override fun start() {
         this.add(
-            "example_glm_1", ReplaceLootModifier(
+            "change_stone_loot_table", ReplaceLootModifier(
                 arrayOf(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.STONE).build()),
                 ModItems.ROCK
             ), listOf(ModLoadedCondition(VeryFunMod.ID))

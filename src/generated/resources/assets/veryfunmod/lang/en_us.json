@@ -2,6 +2,11 @@
   "block.minecraft.example_block": "Example Block",
   "creativetab.veryfunmod.items": "Very Fun Mod",
   "item.veryfunmod.example_block": "Example Block",
-  "item.veryfunmod.flint_axe": "Flint Axe",
-  "item.veryfunmod.rock": "Rock"
+  "item.veryfunmod.flint_knife": "Flint Knife",
+  "item.veryfunmod.rock": "Rock",
+  "item.veryfunmod.wooden_axe_head": "Wooden Axe Head",
+  "item.veryfunmod.wooden_hoe_head": "Wooden Hoe Head",
+  "item.veryfunmod.wooden_pick_head": "Wooden Pick Head",
+  "item.veryfunmod.wooden_shovel_head": "Wooden Shovel Head",
+  "item.veryfunmod.wooden_sword_head": "Wooden Sword Head"
 }

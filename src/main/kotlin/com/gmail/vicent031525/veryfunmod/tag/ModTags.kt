@@ -19,6 +19,11 @@ object ModTags {
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "incorrect_for_flint_tool")
         )
 
+        val MINABLE_WITH_KNIFE: TagKey<Block> = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "minable_with_knife")
+        )
+
         val MINING_LEVEL_0: TagKey<Block> = TagKey.create(
             Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "mineable_level_1")

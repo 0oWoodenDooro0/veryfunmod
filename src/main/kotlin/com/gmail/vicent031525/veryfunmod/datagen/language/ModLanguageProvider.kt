@@ -13,7 +13,12 @@ class ModLanguageProvider(output: PackOutput) : LanguageProvider(output, VeryFun
 
         add(ModBlocks.EXAMPLE_BLOCK.asItem(), "Example Block")
         add(ModItems.ROCK, "Rock")
-        add(ModItems.FLINT_AXE, "Flint Axe")
+        add(ModItems.WOODEN_AXE_HEAD, "Wooden Axe Head")
+        add(ModItems.WOODEN_HOE_HEAD, "Wooden Hoe Head")
+        add(ModItems.WOODEN_PICK_HEAD, "Wooden Pick Head")
+        add(ModItems.WOODEN_SHOVEL_HEAD, "Wooden Shovel Head")
+        add(ModItems.WOODEN_SWORD_HEAD, "Wooden Sword Head")
+        add(ModItems.FLINT_KNIFE, "Flint Knife")
 
         add(ModCreativeModeTabs.TAB_TITLE, "Very Fun Mod")
     }

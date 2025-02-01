@@ -1,10 +1,12 @@
 package com.gmail.vicent031525.veryfunmod.event
 
 import com.gmail.vicent031525.veryfunmod.VeryFunMod
+import com.gmail.vicent031525.veryfunmod.VeryFunMod.LOGGER
 import com.gmail.vicent031525.veryfunmod.dataattachment.ModDataAttachments
 import com.gmail.vicent031525.veryfunmod.network.LevelExpData
 import com.gmail.vicent031525.veryfunmod.tag.ModTags
 import net.minecraft.server.level.ServerPlayer
+import net.minecraft.world.InteractionHand
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber

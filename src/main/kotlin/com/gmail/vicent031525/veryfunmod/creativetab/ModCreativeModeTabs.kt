@@ -22,8 +22,13 @@ object ModCreativeModeTabs {
                 .title(Component.translatable(TAB_TITLE))
                 .displayItems { _, output ->
                     output.accept(ModItems.ROCK)
+                    output.accept(ModItems.WOODEN_AXE_HEAD)
+                    output.accept(ModItems.WOODEN_HOE_HEAD)
+                    output.accept(ModItems.WOODEN_PICK_HEAD)
+                    output.accept(ModItems.WOODEN_SHOVEL_HEAD)
+                    output.accept(ModItems.WOODEN_SWORD_HEAD)
                     output.accept(ModBlocks.EXAMPLE_BLOCK)
-                    output.accept(ModItems.FLINT_AXE)
+                    output.accept(ModItems.FLINT_KNIFE)
                 }.build()
         }
 

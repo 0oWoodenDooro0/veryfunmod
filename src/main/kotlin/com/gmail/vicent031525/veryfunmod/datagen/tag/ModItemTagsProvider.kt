@@ -18,6 +18,6 @@ class ModItemTagsProvider(
 ) : ItemTagsProvider(output, lookupProvider, blockTags, VeryFunMod.ID) {
     override fun addTags(lookupProvider: HolderLookup.Provider) {
         tag(ModTags.Items.FLINT_TOOL_MATERIALS).add(Items.FLINT)
-        tag(ItemTags.AXES).add(ModItems.FLINT_AXE)
+        tag(ItemTags.AXES).add(ModItems.FLINT_KNIFE)
     }
 }

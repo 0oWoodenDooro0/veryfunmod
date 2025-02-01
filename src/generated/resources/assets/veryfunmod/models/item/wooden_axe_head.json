@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "veryfunmod:item/flint_axe"
+    "layer0": "veryfunmod:item/wooden_axe_head"
   }
 }
