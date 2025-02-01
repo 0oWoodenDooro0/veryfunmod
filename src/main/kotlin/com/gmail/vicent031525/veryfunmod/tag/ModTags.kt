@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 
 object ModTags {
-    object Blocks{
+    object Blocks {
         val NEEDS_FLINT_TOOL: TagKey<Block> = TagKey.create(
             Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "needs_flint_tool")
@@ -19,12 +19,28 @@ object ModTags {
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "incorrect_for_flint_tool")
         )
 
-        val MINEABLE_LEVEL_1: TagKey<Block> = TagKey.create(
+        val MINING_LEVEL_0: TagKey<Block> = TagKey.create(
             Registries.BLOCK,
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "mineable_level_1")
         )
+
+        val MINING_LEVEL_1: TagKey<Block> = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "mineable_level_2")
+        )
+
+        val MINING_EXP_1: TagKey<Block> = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "mineable_exp_1")
+        )
+
+        val MINING_EXP_2: TagKey<Block> = TagKey.create(
+            Registries.BLOCK,
+            ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "mineable_exp_2")
+        )
     }
-    object Items{
+
+    object Items {
         val FLINT_TOOL_MATERIALS: TagKey<Item> = TagKey.create(
             Registries.ITEM,
             ResourceLocation.fromNamespaceAndPath(VeryFunMod.ID, "flint_tool_materials")

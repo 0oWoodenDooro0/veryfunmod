@@ -2,18 +2,28 @@ package com.gmail.vicent031525.veryfunmod
 
 import com.gmail.vicent031525.veryfunmod.block.ModBlocks
 import com.gmail.vicent031525.veryfunmod.creativetab.ModCreativeModeTabs
+import com.gmail.vicent031525.veryfunmod.dataattachment.ModDataAttachments
+import com.gmail.vicent031525.veryfunmod.event.ModServerEvents
 import com.gmail.vicent031525.veryfunmod.item.ModItems
 import com.gmail.vicent031525.veryfunmod.lootmodifier.ModLootModifiers
+import com.gmail.vicent031525.veryfunmod.network.ClientPayloadHandler
+import com.gmail.vicent031525.veryfunmod.network.LevelExpData
+import com.gmail.vicent031525.veryfunmod.network.ServerPayloadHandler
 import net.minecraft.client.Minecraft
+import net.neoforged.bus.api.EventPriority
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLDedicatedServerSetupEvent
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
+import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler
+import net.neoforged.neoforge.network.registration.HandlerThread
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
+import thedarkcolour.kotlinforforge.neoforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 import thedarkcolour.kotlinforforge.neoforge.forge.runForDist
 
@@ -39,6 +49,8 @@ object VeryFunMod {
 
         ModCreativeModeTabs.register(MOD_BUS)
         ModLootModifiers.register(MOD_BUS)
+
+        ModDataAttachments.register(MOD_BUS)
 
         val obj = runForDist(clientTarget = {
             MOD_BUS.addListener(::onClientSetup)
@@ -70,5 +82,18 @@ object VeryFunMod {
     @SubscribeEvent
     fun onCommonSetup(event: FMLCommonSetupEvent) {
         LOGGER.log(Level.INFO, "Hello! This is working!")
+    }
+
+    @SubscribeEvent
+    fun registerPayload(event: RegisterPayloadHandlersEvent) {
+        val payloadRegistrar = event.registrar("1").executesOn(HandlerThread.NETWORK)
+        payloadRegistrar.playBidirectional(
+            LevelExpData.TYPE,
+            LevelExpData.STREAM_CODEC,
+            DirectionalPayloadHandler(
+                ClientPayloadHandler::handleDataOnNetwork,
+                ServerPayloadHandler::handleDataOnNetwork
+            )
+        )
     }
 }
