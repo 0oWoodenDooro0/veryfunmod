@@ -1,16 +1,17 @@
 package com.gmail.vicent031525.veryfunmod.event
 
 import com.gmail.vicent031525.veryfunmod.VeryFunMod
-import com.gmail.vicent031525.veryfunmod.VeryFunMod.LOGGER
 import com.gmail.vicent031525.veryfunmod.dataattachment.ModDataAttachments
 import com.gmail.vicent031525.veryfunmod.network.LevelExpData
+import com.gmail.vicent031525.veryfunmod.particle.ModParticles
 import com.gmail.vicent031525.veryfunmod.tag.ModTags
+import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.world.InteractionHand
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent
 import net.neoforged.neoforge.network.PacketDistributor
 
@@ -50,6 +51,27 @@ object ModServerEvents {
                     player as ServerPlayer, LevelExpData(newExp, miningLevel, miningMaxExp)
                 )
             }
+        }
+    }
+
+    @SubscribeEvent
+    fun onPlayerDamage(event: AttackEntityEvent) {
+        val player = event.entity
+        if (player.level().isClientSide) return
+        if (player.random.nextFloat() < 0.90f) {
+            val target = event.target
+            (player.level() as ServerLevel).sendParticles(
+                ModParticles.MISS_ATTACK_PARTICLE.get(),
+                target.x,
+                target.getY(1.0),
+                target.z,
+                1,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            )
+            event.isCanceled = true
         }
     }
 }

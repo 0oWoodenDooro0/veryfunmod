@@ -5,6 +5,7 @@ import com.gmail.vicent031525.veryfunmod.datagen.globallootmodifier.ModGlobalLoo
 import com.gmail.vicent031525.veryfunmod.datagen.language.ModLanguageProvider
 import com.gmail.vicent031525.veryfunmod.datagen.loottable.ModBlockLootTableProvider
 import com.gmail.vicent031525.veryfunmod.datagen.model.ModModelProvider
+import com.gmail.vicent031525.veryfunmod.datagen.particledescription.ModParticleDescriptionProvider
 import com.gmail.vicent031525.veryfunmod.datagen.recipe.ModRecipeProvider
 import com.gmail.vicent031525.veryfunmod.datagen.tag.ModBlockTagsProvider
 import com.gmail.vicent031525.veryfunmod.datagen.tag.ModItemTagsProvider
@@ -38,5 +39,6 @@ object ModDataGenerators {
         val blockTagsProvider = ModBlockTagsProvider(output, lookUpProvider)
         event.addProvider(blockTagsProvider)
         event.addProvider(ModItemTagsProvider(output, lookUpProvider, blockTagsProvider.contentsGetter()))
+        event.addProvider(ModParticleDescriptionProvider(output))
     }
 }

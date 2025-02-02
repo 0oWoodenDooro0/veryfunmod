@@ -3,27 +3,27 @@ package com.gmail.vicent031525.veryfunmod
 import com.gmail.vicent031525.veryfunmod.block.ModBlocks
 import com.gmail.vicent031525.veryfunmod.creativetab.ModCreativeModeTabs
 import com.gmail.vicent031525.veryfunmod.dataattachment.ModDataAttachments
-import com.gmail.vicent031525.veryfunmod.event.ModServerEvents
 import com.gmail.vicent031525.veryfunmod.item.ModItems
 import com.gmail.vicent031525.veryfunmod.lootmodifier.ModLootModifiers
 import com.gmail.vicent031525.veryfunmod.network.ClientPayloadHandler
 import com.gmail.vicent031525.veryfunmod.network.LevelExpData
 import com.gmail.vicent031525.veryfunmod.network.ServerPayloadHandler
+import com.gmail.vicent031525.veryfunmod.particle.MissAttackParticleProvider
+import com.gmail.vicent031525.veryfunmod.particle.ModParticles
 import net.minecraft.client.Minecraft
-import net.neoforged.bus.api.EventPriority
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.fml.event.lifecycle.FMLDedicatedServerSetupEvent
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent
 import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler
 import net.neoforged.neoforge.network.registration.HandlerThread
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
-import thedarkcolour.kotlinforforge.neoforge.forge.FORGE_BUS
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 import thedarkcolour.kotlinforforge.neoforge.forge.runForDist
 
@@ -46,10 +46,9 @@ object VeryFunMod {
         // Register the KDeferredRegister to the mod-specific event bus
         ModBlocks.register(MOD_BUS)
         ModItems.register(MOD_BUS)
-
+        ModParticles.register(MOD_BUS)
         ModCreativeModeTabs.register(MOD_BUS)
         ModLootModifiers.register(MOD_BUS)
-
         ModDataAttachments.register(MOD_BUS)
 
         val obj = runForDist(clientTarget = {
@@ -95,5 +94,10 @@ object VeryFunMod {
                 ServerPayloadHandler::handleDataOnNetwork
             )
         )
+    }
+
+    @SubscribeEvent
+    fun registerParticle(event: RegisterParticleProvidersEvent) {
+        event.registerSpriteSet(ModParticles.MISS_ATTACK_PARTICLE.get(), ::MissAttackParticleProvider)
     }
 }

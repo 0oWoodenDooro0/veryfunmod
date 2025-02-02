@@ -28,7 +28,7 @@ class KnifeItem(material: ToolMaterial, attackDamage: Float, attackSpeed: Float,
         if (level.isClientSide) return stack
         if (livingEntity !is Player) return stack
         val itemStack = livingEntity.offhandItem
-        if (itemStack.item != Items.STICK) return stack
+        if (itemStack.`is`(Items.STICK)) return stack
         livingEntity.addItem(
             when (livingEntity.random.nextInt(5)) {
                 0 -> ItemStack(ModItems.WOODEN_AXE_HEAD)
